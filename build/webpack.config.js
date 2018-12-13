@@ -1,5 +1,7 @@
+//https://perishablepress.com/basic-webpack-setup/
+
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // used to run local dev server with webpack
 
 module.exports = {
     entry: ['./src/index.ts'],
@@ -20,6 +22,13 @@ module.exports = {
         extensions: [ '.ts', '.js' ]
     },
     devtool: 'inline-source-map',
+    devServer: {
+        stats: "errors-only",
+        host: process.env.HOST, // default: localhost
+        port: process.env.PORT, // default: 8080
+        open: true, // open page in browser
+        overlay: true, // error overlay
+      },
     plugins: [      
         new HtmlWebpackPlugin({
         title: "Project Name",
