@@ -2,16 +2,21 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // used to run local dev server with webpack
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
     entry: ['./src/index.ts'],
     module: {
         rules: [
-          {
+            {
+                test: /\.vue$/,
+                use: 'vue-loader'
+            },
+            {
             test: /\.tsx?$/,
             use: 'ts-loader',
             exclude: /node_modules/
-          }
+            }
         ]
       },
     output: {
@@ -33,5 +38,6 @@ module.exports = {
         new HtmlWebpackPlugin({
         title: "Project Name",
         }),
+        new VueLoaderPlugin()
   ],
 };
