@@ -10,12 +10,12 @@ module.exports = {
         rules: [
             {
                 test: /\.vue$/,
-                use: 'vue-loader'
+                loader: 'vue-loader'
             },
             {
-            test: /\.tsx?$/,
-            use: 'ts-loader',
-            exclude: /node_modules/
+                test: /\.ts?$/,
+                loader: 'ts-loader',
+                options: { appendTsSuffixTo: [/\.vue$/] }
             }
         ]
       },
@@ -24,7 +24,10 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
-        extensions: [ '.ts', '.js' ]
+        extensions: [ '.ts', '.js' ],
+        alias: {
+            vue: 'vue/dist/vue.js'
+        }
     },
     devtool: 'inline-source-map',
     devServer: {
