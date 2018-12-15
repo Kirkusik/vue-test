@@ -4,8 +4,10 @@ import router from './router';
 
 Vue.config.productionTip = false;
 
+//document.write('<div id="app"><router-view></router-view></div>');
+
 new Vue({
   el: '#app',
-  router,
   render: (h) => h(App),
+  router
 }).$mount('#app');

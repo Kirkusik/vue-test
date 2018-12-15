@@ -8,9 +8,9 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Home extends Vue {    
+export default class About extends Vue {    
     get test(): string{
-        return 'Home Page!';
+        return 'About Page!';
     }
 }
 
